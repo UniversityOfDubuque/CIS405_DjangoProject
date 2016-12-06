@@ -8,14 +8,14 @@ class Student(models.Model):
     Email = models.CharField(max_length=200)
     Phone_Number = models.CharField(max_length=200)
 
+class Post(models.Model):
+    Post_ID = models.CharField(max_length=10)
+    Post_Date_Time = models.DateTimeField('date post')
+
 class Responds(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     Response_Date_Time = models.DateTimeField('date responded')
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-
-class Post(models.Model):
-    Post_ID = models.CharField(max_length=10)
-    Post_Date_Time = models.DateTimeField('date post')
 
 class Products(models.Model):
     Product_ID = models.CharField(max_length=10)
@@ -35,6 +35,12 @@ class Student_Tour(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     tour = models.ForeignKey(Tours, on_delete=models.CASCADE)
 
+
+class Destination(models.Model):
+    Dest_ID = models.CharField(max_length=10)
+    Destination_Name = models.CharField(max_length=200)
+
+
 class Tour_Destinations(models.Model):
     tour = models.ForeignKey(Tours, on_delete=models.CASCADE)
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
@@ -46,10 +52,6 @@ class Saudi_Group_Admins(models.Model):
     Last_Name = models.CharField(max_length=200)
     Email = models.CharField(max_length=200)
     Phone_Number = models.CharField(max_length=200)
-
-class Destination(models.Model):
-    Dest_ID = models.CharField(max_length=10)
-    Destination_Name = models.CharField(max_length=200)
 
 class Arrival(models.Model):
     Arrival_ID = models.CharField(max_length=10)

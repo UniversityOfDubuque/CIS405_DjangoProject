@@ -1,0 +1,9 @@
+{% if latest_arrival_list %}
+    <ul>
+    {% for arrival in latest_arrival_list %}
+        <li>{{ arrival.Arrival_Date_Time }} - {{ arrival.Flight_Feedback }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No arrivals are available.</p>
+{% endif %}
